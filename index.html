@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>T&J Wedding 2025</title>
+    <title>TJ Wedding — December 19, 2025</title>
     <meta
       name="description"
       content="The wedding of Tiphanie & Jeralde on December 19, 2025 at Nanay Lucy's Catering Services, Brgy. New Rizal, M'lang, North Cotabato."
@@ -28,7 +28,6 @@
           </div>
         </div>
         <div class="hero-photo">
-          <!-- replace with your real photo path -->
           <img src="images/couple-1.jpg" alt="Tiphanie and Jeralde" />
         </div>
       </div>
@@ -61,7 +60,7 @@
         </div>
       </section>
 
-      <!-- ABOUT / FAMILIES -->
+      <!-- ABOUT -->
       <section class="about" id="about">
         <div class="container about-inner">
           <div class="about-text">
@@ -90,13 +89,12 @@
             </div>
           </div>
           <div class="about-photo">
-            <!-- replace with your real photo path -->
             <img src="images/couple-2.jpg" alt="The couple" />
           </div>
         </div>
       </section>
 
-      <!-- WEDDING DETAILS -->
+      <!-- DETAILS -->
       <section class="details" id="details">
         <div class="container">
           <h2 class="section-title center">Wedding Details</h2>
@@ -137,7 +135,6 @@
             </article>
           </div>
 
-          <!-- MAP EMBED -->
           <div class="map-placeholder">
             <iframe
               class="map-frame"
@@ -172,7 +169,7 @@
                 Rev. Jimmy R. Guilon &amp; Rev. Caroline Guilon
               </div>
               <div class="entourage-item">
-                Rev. Eduard Oranza &amp; Rev. Salome Oranza
+                Rev. Eduard Oranza &amp; Rev. Memet Oranza
               </div>
               <div class="entourage-item">
                 Rev. Zenrad Khan V. Gepte &amp; Mrs. Imelde P. Gepte
@@ -224,7 +221,7 @@
                 <p>
                   Camille Latido<br />
                   Faith Maquiran<br />
-                  Precious Diane S. Ronda<br />
+                  Precious Dianne Ronda<br />
                   Dawn Jewel Cacuyong<br />
                   Jocelyn Cacuyong
                 </p>
@@ -272,7 +269,7 @@
         <div class="container rsvp-box">
           <h2 class="section-title center">Confirm Your Attendance</h2>
           <p class="rsvp-text">We would love to have you celebrate with us.</p>
-          <form class="rsvp-form" action="#" method="post">
+          <form class="rsvp-form" id="rsvp-form">
             <label>
               Name
               <input
@@ -293,7 +290,7 @@
             </label>
             <label>
               No. of Guests
-              <input type="number" name="guests" min="1" value="1" />
+              <input type="number" name="guests" min="1" value="1" required />
             </label>
             <label>
               Message
@@ -303,8 +300,16 @@
                 placeholder="Your message to the couple..."
               ></textarea>
             </label>
-            <button type="submit" class="btn primary full">Send RSVP</button>
+            <button type="submit" class="btn primary full" id="rsvp-submit">
+              Send RSVP
+            </button>
           </form>
+          <p class="rsvp-feedback rsvp-success" id="rsvp-success">
+            Thank you. Your RSVP has been sent.
+          </p>
+          <p class="rsvp-feedback rsvp-error" id="rsvp-error">
+            There was a problem sending your RSVP. Please try again.
+          </p>
           <p class="rsvp-note">
             Please come in <strong>FORMAL</strong> attire.
           </p>
@@ -360,6 +365,50 @@
 
       updateCountdown();
       setInterval(updateCountdown, 1000);
+
+      // RSVP submit handler
+      const rsvpForm = document.getElementById("rsvp-form");
+      const rsvpSuccess = document.getElementById("rsvp-success");
+      const rsvpError = document.getElementById("rsvp-error");
+      const rsvpButton = document.getElementById("rsvp-submit");
+
+      rsvpForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        rsvpSuccess.style.display = "none";
+        rsvpError.style.display = "none";
+        rsvpButton.disabled = true;
+        rsvpButton.textContent = "Sending...";
+
+        const formData = new FormData(rsvpForm);
+        const payload = {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          guests: formData.get("guests"),
+          message: formData.get("message"),
+        };
+
+        try {
+          const res = await fetch("/api/rsvp", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (res.ok) {
+            rsvpSuccess.style.display = "block";
+            rsvpForm.reset();
+          } else {
+            rsvpError.style.display = "block";
+          }
+        } catch (err) {
+          rsvpError.style.display = "block";
+        } finally {
+          rsvpButton.disabled = false;
+          rsvpButton.textContent = "Send RSVP";
+        }
+      });
     </script>
   </body>
 </html>

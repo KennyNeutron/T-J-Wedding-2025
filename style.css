@@ -27,6 +27,7 @@ body {
 img {
   max-width: 100%;
   display: block;
+  height: auto;
 }
 
 .container {
@@ -135,6 +136,7 @@ img {
   font-size: clamp(2rem, 3.5vw, 2.6rem);
   margin-bottom: 2.5rem;
   color: var(--text);
+  line-height: 1.1;
 }
 
 .section-title.center {
@@ -188,17 +190,19 @@ img {
 
 .about-inner {
   display: flex;
-  gap: 60px;
+  gap: 50px;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .about-text {
-  flex: 1 1 300px;
+  flex: 1 1 480px;
+  max-width: 560px;
 }
 
 .lead {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   color: var(--muted);
   margin-bottom: 2.5rem;
 }
@@ -222,15 +226,21 @@ img {
 }
 
 .parents-names {
-  font-size: 1.1rem;
+  font-size: 1.02rem;
 }
 
 .about-photo {
-  flex: 1 1 300px;
+  flex: 0 0 410px;
+  max-width: 410px;
+  align-self: stretch;
 }
 
 .about-photo img {
-  border-radius: var(--radius);
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -484,10 +494,35 @@ img {
   .about-inner {
     flex-direction: column;
   }
+  .about-photo {
+    max-width: 100%;
+    align-self: auto;
+  }
+  .about-photo img {
+    min-height: 0;
+    height: auto;
+  }
   .rsvp-box {
     padding: 40px 20px;
   }
   .map-frame {
     height: 260px;
   }
+}
+
+/* RSVP feedback messages */
+.rsvp-feedback {
+  display: none;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+.rsvp-success {
+  background: #e6f4ea;
+  color: #275336;
+}
+.rsvp-error {
+  background: #fdecea;
+  color: #611a15;
 }
