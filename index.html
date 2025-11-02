@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>TJ Wedding — December 19, 2025</title>
+    <title>T&J Wedding — December 19, 2025</title>
     <meta
       name="description"
       content="The wedding of Tiphanie & Jeralde on December 19, 2025 at Nanay Lucy's Catering Services, Brgy. New Rizal, M'lang, North Cotabato."
@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- HERO -->
     <header class="hero" id="home">
       <div class="hero-inner container">
         <div class="hero-text">
@@ -34,7 +33,6 @@
     </header>
 
     <main>
-      <!-- COUNTDOWN -->
       <section class="countdown" id="countdown">
         <div class="container countdown-inner">
           <h2 class="section-title">Count Down to Our Big Day</h2>
@@ -60,7 +58,6 @@
         </div>
       </section>
 
-      <!-- ABOUT -->
       <section class="about" id="about">
         <div class="container about-inner">
           <div class="about-text">
@@ -94,7 +91,6 @@
         </div>
       </section>
 
-      <!-- DETAILS -->
       <section class="details" id="details">
         <div class="container">
           <h2 class="section-title center">Wedding Details</h2>
@@ -118,6 +114,7 @@
                 <p class="detail-value highlight">FORMAL</p>
               </div>
             </article>
+
             <article class="detail-card accent-gold">
               <h3 class="detail-title">Venue</h3>
               <div class="detail-block">
@@ -157,7 +154,37 @@
         </div>
       </section>
 
-      <!-- ENTOURAGE -->
+      <section class="dress-code" id="dress-code">
+        <div class="container">
+          <h2 class="section-title center">Dress Code &amp; Color Palette</h2>
+          <p class="dress-note">
+            Please come in formal attire following the palette below.
+          </p>
+          <div class="dress-grid">
+            <article class="dress-card">
+              <h3 class="dress-title">Women</h3>
+              <p class="dress-sub">Soft sage and forest tones</p>
+              <div class="dress-photo">
+                <img
+                  src="images/dress-women.jpg"
+                  alt="Women dress code color palette in sage green"
+                />
+              </div>
+            </article>
+            <article class="dress-card">
+              <h3 class="dress-title">Men</h3>
+              <p class="dress-sub">Warm beige and brown tones</p>
+              <div class="dress-photo">
+                <img
+                  src="images/dress-men.jpg"
+                  alt="Men dress code color palette in brown and taupe"
+                />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="entourage" id="entourage">
         <div class="container">
           <h2 class="section-title center">Entourage</h2>
@@ -264,7 +291,6 @@
         </div>
       </section>
 
-      <!-- RSVP -->
       <section class="rsvp" id="rsvp">
         <div class="container rsvp-box">
           <h2 class="section-title center">Confirm Your Attendance</h2>
@@ -329,7 +355,6 @@
 
     <script>
       const targetTime = new Date("2025-12-19T14:30:00+08:00").getTime();
-
       const elDays = document.getElementById("cd-days");
       const elHours = document.getElementById("cd-hours");
       const elMinutes = document.getElementById("cd-minutes");
@@ -342,7 +367,6 @@
       function updateCountdown() {
         const now = Date.now();
         const diff = targetTime - now;
-
         if (diff <= 0) {
           elDays.textContent = "00";
           elHours.textContent = "00";
@@ -350,13 +374,11 @@
           elSeconds.textContent = "00";
           return;
         }
-
         const secondsTotal = Math.floor(diff / 1000);
         const days = Math.floor(secondsTotal / 86400);
         const hours = Math.floor((secondsTotal % 86400) / 3600);
         const minutes = Math.floor((secondsTotal % 3600) / 60);
         const seconds = secondsTotal % 60;
-
         elDays.textContent = pad(days);
         elHours.textContent = pad(hours);
         elMinutes.textContent = pad(minutes);
@@ -366,7 +388,6 @@
       updateCountdown();
       setInterval(updateCountdown, 1000);
 
-      // RSVP submit handler
       const rsvpForm = document.getElementById("rsvp-form");
       const rsvpSuccess = document.getElementById("rsvp-success");
       const rsvpError = document.getElementById("rsvp-error");

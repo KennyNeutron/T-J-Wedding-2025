@@ -331,6 +331,61 @@ img {
   justify-content: center;
 }
 
+/* DRESS CODE */
+.dress-code {
+  background: var(--white);
+  padding: 70px 0;
+}
+
+.dress-note {
+  text-align: center;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.dress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+.dress-card {
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 28px 26px 26px 26px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(199, 185, 142, 0.45);
+}
+
+.dress-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.dress-sub {
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-size: 0.68rem;
+  color: var(--sage-dark);
+  margin-bottom: 1.25rem;
+}
+
+.dress-photo {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px dashed rgba(163, 177, 138, 0.35);
+}
+
+.dress-photo img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
 /* ENTOURAGE */
 .entourage {
   background: var(--white);
@@ -442,6 +497,24 @@ img {
   width: 100%;
 }
 
+.rsvp-feedback {
+  display: none;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+
+.rsvp-success {
+  background: #e6f4ea;
+  color: #275336;
+}
+
+.rsvp-error {
+  background: #fdecea;
+  color: #611a15;
+}
+
 .rsvp-note {
   text-align: center;
   margin-top: 30px;
@@ -508,21 +581,7 @@ img {
   .map-frame {
     height: 260px;
   }
-}
-
-/* RSVP feedback messages */
-.rsvp-feedback {
-  display: none;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
-}
-.rsvp-success {
-  background: #e6f4ea;
-  color: #275336;
-}
-.rsvp-error {
-  background: #fdecea;
-  color: #611a15;
+  .dress-code {
+    padding: 60px 0;
+  }
 }
