@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- HERO -->
     <header class="hero" id="home">
       <div class="hero-inner container">
         <div class="hero-text">
@@ -33,30 +34,46 @@
     </header>
 
     <main>
+      <!-- COUNTDOWN -->
       <section class="countdown" id="countdown">
         <div class="container countdown-inner">
           <h2 class="section-title">Count Down to Our Big Day</h2>
-          <div class="count-grid">
-            <div class="count-box">
-              <div class="count-number" id="cd-days">00</div>
+
+          <div class="flip-grid">
+            <div class="flip-unit">
+              <div class="flip-card" id="flip-days" data-value="00">
+                <div class="value">00</div>
+              </div>
               <div class="count-label">Days</div>
             </div>
-            <div class="count-box">
-              <div class="count-number" id="cd-hours">00</div>
+
+            <div class="flip-unit">
+              <div class="flip-card" id="flip-hours" data-value="00">
+                <div class="value">00</div>
+              </div>
               <div class="count-label">Hours</div>
             </div>
-            <div class="count-box">
-              <div class="count-number" id="cd-minutes">00</div>
+
+            <div class="flip-unit">
+              <div class="flip-card" id="flip-minutes" data-value="00">
+                <div class="value">00</div>
+              </div>
               <div class="count-label">Minutes</div>
             </div>
-            <div class="count-box">
-              <div class="count-number" id="cd-seconds">00</div>
+
+            <div class="flip-unit">
+              <div class="flip-card" id="flip-seconds" data-value="00">
+                <div class="value">00</div>
+              </div>
               <div class="count-label">Seconds</div>
             </div>
           </div>
+
+          <p class="countdown-note">(Live flip clock)</p>
         </div>
       </section>
 
+      <!-- ABOUT -->
       <section class="about" id="about">
         <div class="container about-inner">
           <div class="about-text">
@@ -90,6 +107,7 @@
         </div>
       </section>
 
+      <!-- DETAILS -->
       <section class="details" id="details">
         <div class="container">
           <h2 class="section-title center">Wedding Details</h2>
@@ -135,7 +153,7 @@
             <iframe
               class="map-frame"
               src="https://www.google.com/maps?q=6.9095072,124.9771857&hl=en&z=17&output=embed"
-              allowfullscreen=""
+              allowfullscreen
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
@@ -146,13 +164,13 @@
               href="https://www.google.com/maps/place/Nanay+Lucy+Catering+Services/@6.9087587,124.9773291,18.25z/data=!4m6!3m5!1s0x32f85945e80f5db1:0x51f525e13a942a95!8m2!3d6.9095072!4d124.9771857!16s%2Fg%2F11kpmwd291?entry=ttu"
               target="_blank"
               rel="noreferrer"
+              >Open in Google Maps</a
             >
-              Open in Google Maps
-            </a>
           </div>
         </div>
       </section>
 
+      <!-- DRESS CODE -->
       <section class="dress-code" id="dress-code">
         <div class="container">
           <h2 class="section-title center">Dress Code &amp; Color Palette</h2>
@@ -165,17 +183,17 @@
               <p class="dress-sub">Soft sage and forest tones</p>
               <div class="dress-photo">
                 <img
-                  src="images/dress-women.jpg"
+                  src="images/dress-women.png"
                   alt="Women dress code color palette in sage green"
                 />
               </div>
             </article>
             <article class="dress-card">
               <h3 class="dress-title">Men</h3>
-              <p class="dress-sub">Warm beige and brown tones</p>
+              <p class="dress-sub">Soft sage and forest tones</p>
               <div class="dress-photo">
                 <img
-                  src="images/dress-men.jpg"
+                  src="images/dress-men.png"
                   alt="Men dress code color palette in brown and taupe"
                 />
               </div>
@@ -184,12 +202,16 @@
         </div>
       </section>
 
+      <!-- ENTOURAGE -->
       <section class="entourage" id="entourage">
         <div class="container">
           <h2 class="section-title center">Entourage</h2>
 
           <div class="entourage-block">
             <h3 class="entourage-heading">Principal Sponsors</h3>
+            <p class="entourage-sub">
+              to stand as principal witness to our vows
+            </p>
             <div class="entourage-grid">
               <div class="entourage-item">
                 Rev. Jimmy R. Guilon &amp; Rev. Caroline Guilon
@@ -254,7 +276,7 @@
               </div>
               <div class="sec-item">
                 <h4>Bible Bearer</h4>
-                <p>Jeiremie Odia</p>
+                <p>Jeiremie Odias</p>
               </div>
               <div class="sec-item">
                 <h4>Ring Bearer</h4>
@@ -266,30 +288,44 @@
               </div>
               <div class="sec-item">
                 <h4>Veil Sponsors</h4>
-                <p>
-                  Rev. Marvin Aldana &amp;<br />
-                  Sheryl Aldana
-                </p>
+                <p class="role-sub">To clothe us as one</p>
+                <p>Rev. Marvin Aldana &amp; Sheryl Aldana</p>
               </div>
               <div class="sec-item">
-                <h4>Chord Sponsors</h4>
-                <p>
-                  Mr. Michael Fronda &amp;<br />
-                  Mrs. Reggie Ann Fronda
-                </p>
+                <h4>Cord Sponsors</h4>
+                <p class="role-sub">To bind us together</p>
+                <p>Mr. Michael Fronda &amp; Mrs. Reggie Ann Fronda</p>
               </div>
               <div class="sec-item">
-                <h4>Candle Light</h4>
-                <p>
-                  Archt. Giglyn Flores &amp;<br />
-                  Michell Flores
-                </p>
+                <h4>Candle Sponsors</h4>
+                <p class="role-sub">To light our Path</p>
+                <p>Archt. Giglyn Flores &amp; Michell Flores</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- GIFTS -->
+      <section class="gifts" id="gifts">
+        <div class="container">
+          <h2 class="section-title center gifts-heading">GIFT IDEAS</h2>
+          <div class="gifts-card">
+            <p class="gifts-line">
+              with all that we have, we've been truly blessed,
+            </p>
+            <p class="gifts-line">
+              your presence and prayers are all that we request.
+            </p>
+            <p class="gifts-line">but if you desire to give nonetheless,</p>
+            <p class="gifts-line">
+              a monetary gift will be greatly appreciated.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RSVP -->
       <section class="rsvp" id="rsvp">
         <div class="container rsvp-box">
           <h2 class="section-title center">Confirm Your Attendance</h2>
@@ -354,81 +390,72 @@
 
     <script>
       const targetTime = new Date("2025-12-19T14:30:00+08:00").getTime();
-      const elDays = document.getElementById("cd-days");
-      const elHours = document.getElementById("cd-hours");
-      const elMinutes = document.getElementById("cd-minutes");
-      const elSeconds = document.getElementById("cd-seconds");
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-      function pad(num) {
-        return num.toString().padStart(2, "0");
+      function pad(n, len = 2) {
+        return n.toString().padStart(len, "0");
+      }
+
+      function flipTo(card, newValue) {
+        const oldValue = card.dataset.value || "00";
+        if (oldValue === newValue) return;
+
+        const valueEl = card.querySelector(".value");
+
+        // If user prefers reduced motion, update text only.
+        if (reduceMotion) {
+          valueEl.textContent = newValue;
+          card.dataset.value = newValue;
+          return;
+        }
+
+        // Animated flip using temporary halves
+        const top = document.createElement("div");
+        const bottom = document.createElement("div");
+        top.className = "flip-half flip-upper";
+        bottom.className = "flip-half flip-lower";
+
+        top.textContent = oldValue; // outgoing top
+        bottom.textContent = newValue; // incoming bottom
+
+        // Set center value immediately so one clean value is always visible
+        valueEl.textContent = newValue;
+        card.dataset.value = newValue;
+
+        // Append halves then remove after animation
+        card.appendChild(top);
+        card.appendChild(bottom);
+
+        const remove = (el) =>
+          el && el.parentNode && el.parentNode.removeChild(el);
+        top.addEventListener("animationend", () => remove(top));
+        bottom.addEventListener("animationend", () => remove(bottom));
       }
 
       function updateCountdown() {
         const now = Date.now();
-        const diff = targetTime - now;
-        if (diff <= 0) {
-          elDays.textContent = "00";
-          elHours.textContent = "00";
-          elMinutes.textContent = "00";
-          elSeconds.textContent = "00";
-          return;
-        }
-        const secondsTotal = Math.floor(diff / 1000);
-        const days = Math.floor(secondsTotal / 86400);
-        const hours = Math.floor((secondsTotal % 86400) / 3600);
-        const minutes = Math.floor((secondsTotal % 3600) / 60);
-        const seconds = secondsTotal % 60;
-        elDays.textContent = pad(days);
-        elHours.textContent = pad(hours);
-        elMinutes.textContent = pad(minutes);
-        elSeconds.textContent = pad(seconds);
+        let diff = targetTime - now;
+        if (diff < 0) diff = 0;
+
+        const total = Math.floor(diff / 1000);
+        const d = Math.floor(total / 86400);
+        const h = Math.floor((total % 86400) / 3600);
+        const m = Math.floor((total % 3600) / 60);
+        const s = total % 60;
+
+        // Keep days at 2 digits by default; change to 3 if you want.
+        const daysStr = pad(d, 2);
+
+        flipTo(document.getElementById("flip-days"), daysStr);
+        flipTo(document.getElementById("flip-hours"), pad(h));
+        flipTo(document.getElementById("flip-minutes"), pad(m));
+        flipTo(document.getElementById("flip-seconds"), pad(s));
       }
 
       updateCountdown();
       setInterval(updateCountdown, 1000);
-
-      const rsvpForm = document.getElementById("rsvp-form");
-      const rsvpSuccess = document.getElementById("rsvp-success");
-      const rsvpError = document.getElementById("rsvp-error");
-      const rsvpButton = document.getElementById("rsvp-submit");
-
-      rsvpForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        rsvpSuccess.style.display = "none";
-        rsvpError.style.display = "none";
-        rsvpButton.disabled = true;
-        rsvpButton.textContent = "Sending...";
-
-        const formData = new FormData(rsvpForm);
-        const payload = {
-          name: formData.get("name"),
-          email: formData.get("email"),
-          guests: formData.get("guests"),
-          message: formData.get("message"),
-        };
-
-        try {
-          const res = await fetch("/api/rsvp", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
-          });
-
-          if (res.ok) {
-            rsvpSuccess.style.display = "block";
-            rsvpForm.reset();
-          } else {
-            rsvpError.style.display = "block";
-          }
-        } catch (err) {
-          rsvpError.style.display = "block";
-        } finally {
-          rsvpButton.disabled = false;
-          rsvpButton.textContent = "Send RSVP";
-        }
-      });
     </script>
   </body>
 </html>
