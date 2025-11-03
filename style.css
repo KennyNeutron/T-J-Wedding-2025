@@ -121,13 +121,25 @@ img {
   color: var(--text);
   line-height: 1.1;
 }
+
+.section-title-alt {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  margin-bottom: 2.5rem;
+  color: white;
+  line-height: 1.1;
+}
+
+.section-title-alt.center {
+  text-align: center;
+}
+
 .section-title.center {
   text-align: center;
 }
 .countdown-inner {
   text-align: center;
 }
-
 .flip-grid {
   display: flex;
   justify-content: center;
@@ -141,7 +153,7 @@ img {
   gap: 0.6rem;
 }
 
-/* Card displays one clean value. Halves only appear during animation. */
+/* Flip cards */
 .flip-card {
   position: relative;
   width: 140px;
@@ -172,8 +184,9 @@ img {
   user-select: none;
   line-height: 1;
 }
-
-/* Temporary halves for flip */
+.flip-card.is-flipping .value {
+  visibility: hidden;
+}
 .flip-half {
   position: absolute;
   left: 0;
@@ -185,7 +198,7 @@ img {
   font-size: 2.8rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #eef3eb;
+  color: transparent;
   line-height: 1;
   backface-visibility: hidden;
 }
@@ -193,7 +206,7 @@ img {
   top: 0;
   height: 50%;
   padding-bottom: 6px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.06);
   transform-origin: bottom;
   animation: flipTop 0.6s ease-in forwards;
 }
@@ -201,7 +214,7 @@ img {
   bottom: 0;
   height: 50%;
   padding-top: 6px;
-  background: rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.12);
   transform-origin: top;
   transform: rotateX(90deg);
   animation: flipBottom 0.6s ease-out forwards;
@@ -222,7 +235,6 @@ img {
     transform: rotateX(0);
   }
 }
-
 .count-label {
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -293,7 +305,30 @@ img {
 .details {
   background: var(--bg);
   padding: 80px 0;
+  position: relative;
 }
+.details-photo {
+  background-image: url("images/details-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.details-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(47, 58, 50, 0.38),
+    rgba(47, 58, 50, 0.38)
+  );
+}
+.details-photo > .container {
+  position: relative;
+}
+
 .details-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -476,10 +511,24 @@ img {
   text-align: center;
 }
 
-/* GIFTS */
+/* GIFTS (now with illustration background) */
 .gifts {
-  background: var(--bg);
+  position: relative;
   padding: 70px 0;
+  background: var(--bg) url("images/gifts-illustration.png") no-repeat;
+  background-size: cover; /* fills section elegantly */
+  background-position: left center; /* shows envelope on the left */
+  background-attachment: fixed; /* subtle parallax on desktop */
+}
+.gifts::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 246, 242, 0.55); /* soft wash for text contrast */
+  pointer-events: none;
+}
+.gifts > .container {
+  position: relative;
 }
 .gifts-heading {
   letter-spacing: 2px;
@@ -630,5 +679,12 @@ img {
   .flip-card .value,
   .flip-half {
     font-size: 2.3rem;
+  }
+  .details-photo {
+    background-attachment: scroll;
+  }
+  .gifts {
+    background-attachment: scroll;
+    background-position: center top;
   }
 }

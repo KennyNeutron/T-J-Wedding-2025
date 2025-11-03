@@ -107,10 +107,10 @@
         </div>
       </section>
 
-      <!-- DETAILS -->
-      <section class="details" id="details">
+      <!-- DETAILS (with photo background; layout unchanged) -->
+      <section class="details details-photo" id="details">
         <div class="container">
-          <h2 class="section-title center">Wedding Details</h2>
+          <h2 class="section-title-alt center">Wedding Details</h2>
           <div class="details-grid">
             <article class="detail-card accent-left">
               <h3 class="detail-title">Ceremony</h3>
@@ -403,35 +403,35 @@
         if (oldValue === newValue) return;
 
         const valueEl = card.querySelector(".value");
+        card.querySelectorAll(".flip-half").forEach((el) => el.remove());
 
-        // If user prefers reduced motion, update text only.
         if (reduceMotion) {
           valueEl.textContent = newValue;
           card.dataset.value = newValue;
           return;
         }
 
-        // Animated flip using temporary halves
+        card.classList.add("is-flipping");
+
         const top = document.createElement("div");
         const bottom = document.createElement("div");
         top.className = "flip-half flip-upper";
         bottom.className = "flip-half flip-lower";
 
-        top.textContent = oldValue; // outgoing top
-        bottom.textContent = newValue; // incoming bottom
-
-        // Set center value immediately so one clean value is always visible
-        valueEl.textContent = newValue;
-        card.dataset.value = newValue;
-
-        // Append halves then remove after animation
         card.appendChild(top);
         card.appendChild(bottom);
 
-        const remove = (el) =>
-          el && el.parentNode && el.parentNode.removeChild(el);
-        top.addEventListener("animationend", () => remove(top));
-        bottom.addEventListener("animationend", () => remove(bottom));
+        top.addEventListener("animationend", () => {
+          if (top && top.parentNode) top.parentNode.removeChild(top);
+        });
+
+        bottom.addEventListener("animationend", () => {
+          if (bottom && bottom.parentNode)
+            bottom.parentNode.removeChild(bottom);
+          valueEl.textContent = newValue;
+          card.dataset.value = newValue;
+          card.classList.remove("is-flipping");
+        });
       }
 
       function updateCountdown() {
@@ -445,7 +445,6 @@
         const m = Math.floor((total % 3600) / 60);
         const s = total % 60;
 
-        // Keep days at 2 digits by default; change to 3 if you want.
         const daysStr = pad(d, 2);
 
         flipTo(document.getElementById("flip-days"), daysStr);
