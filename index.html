@@ -17,14 +17,33 @@
         <div class="hero-text">
           <p class="hero-kicker">The Wedding of</p>
           <h1 class="hero-title">Tiphanie &amp; Jeralde</h1>
-          <p class="hero-meta">
-            December 19, 2025 • 2:30 PM<br />
-            Nanay Lucy's Catering Services<br />
-            Brgy. New Rizal, M'lang, North Cotabato
-          </p>
+
+          <!-- icon list -->
+          <ul class="hero-meta-list">
+            <li class="with-icon">
+              <i data-lucide="calendar" aria-hidden="true"></i>
+              December 19, 2025
+            </li>
+            <li class="with-icon">
+              <i data-lucide="clock" aria-hidden="true"></i>
+              2:30 PM
+            </li>
+            <li class="with-icon">
+              <i data-lucide="map-pin" aria-hidden="true"></i>
+              Nanay Lucy's Catering Services, Brgy. New Rizal, M'lang, North
+              Cotabato
+            </li>
+          </ul>
+
           <div class="hero-actions">
-            <a href="#rsvp" class="btn primary">Save the Date</a>
-            <a href="#details" class="btn outline">Event Details</a>
+            <a href="#rsvp" class="btn primary with-icon">
+              <i data-lucide="calendar-plus" aria-hidden="true"></i>
+              Save the Date
+            </a>
+            <a href="#details" class="btn outline with-icon">
+              <i data-lucide="info" aria-hidden="true"></i>
+              Event Details
+            </a>
           </div>
         </div>
         <div class="hero-photo">
@@ -84,14 +103,20 @@
             </p>
             <div class="parents-group">
               <div class="parents-card">
-                <h3 class="parents-title">Parents of the Bride</h3>
+                <h3 class="parents-title with-icon">
+                  <i data-lucide="heart-handshake" aria-hidden="true"></i>
+                  Parents of the Bride
+                </h3>
                 <p class="parents-names">
                   Brigido R. Gajelonia<br />
                   Norma N. Gajelonia
                 </p>
               </div>
               <div class="parents-card">
-                <h3 class="parents-title">Parents of the Groom</h3>
+                <h3 class="parents-title with-icon">
+                  <i data-lucide="heart-handshake" aria-hidden="true"></i>
+                  Parents of the Groom
+                </h3>
                 <p class="parents-names">
                   Rolando B. Datulayta<br />
                   Elinita E. Datulayta
@@ -105,45 +130,83 @@
         </div>
       </section>
 
-      <!-- DETAILS (with photo background; layout unchanged) -->
+      <!-- DETAILS (photo bg) -->
       <section class="details details-photo" id="details">
         <div class="container">
-          <h2 class="section-title-alt center">Wedding Details</h2>
+          <h2 class="section-title-alt center with-icon">
+            <i data-lucide="info" aria-hidden="true"></i>
+            Wedding Details
+          </h2>
+
           <div class="details-grid">
             <article class="detail-card accent-left">
-              <h3 class="detail-title">Ceremony</h3>
-              <div class="detail-block">
-                <p class="detail-label">Date</p>
-                <p class="detail-value">December 19, 2025</p>
+              <h3 class="detail-title with-icon">
+                <i data-lucide="church" aria-hidden="true"></i>
+                Ceremony
+              </h3>
+
+              <div class="detail-row with-icon">
+                <i data-lucide="calendar" aria-hidden="true"></i>
+                <div>
+                  <p class="detail-label">Date</p>
+                  <p class="detail-value">December 19, 2025</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <p class="detail-label">Time</p>
-                <p class="detail-value">2:30 PM</p>
+
+              <div class="detail-row with-icon">
+                <i data-lucide="clock" aria-hidden="true"></i>
+                <div>
+                  <p class="detail-label">Time</p>
+                  <p class="detail-value">2:30 PM</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <p class="detail-label">Officiating Minister</p>
-                <p class="detail-value">Rev. Jimmy R. Guilon</p>
+
+              <div class="detail-row with-icon">
+                <i data-lucide="book-open" aria-hidden="true"></i>
+                <div>
+                  <p class="detail-label">Officiating Minister</p>
+                  <p class="detail-value">Rev. Jimmy R. Guilon</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <p class="detail-label">Dress Code</p>
-                <p class="detail-value highlight">FORMAL</p>
+
+              <div class="detail-row with-icon">
+                <i data-lucide="shirt" aria-hidden="true"></i>
+                <div>
+                  <p class="detail-label">Dress Code</p>
+                  <p class="detail-value highlight">FORMAL</p>
+                </div>
               </div>
             </article>
 
             <article class="detail-card accent-gold">
-              <h3 class="detail-title">Venue</h3>
-              <div class="detail-block">
-                <p class="detail-label">Location</p>
-                <p class="detail-value">Nanay Lucy's Catering Services</p>
+              <h3 class="detail-title with-icon">
+                <i data-lucide="map" aria-hidden="true"></i>
+                Venue
+              </h3>
+
+              <div class="detail-row with-icon">
+                <i data-lucide="landmark" aria-hidden="true"></i>
+                <div>
+                  <p class="detail-label">Location</p>
+                  <p class="detail-value">Nanay Lucy's Catering Services</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <p class="detail-label">Address</p>
-                <p class="detail-value">
-                  Brgy. New Rizal, M'lang,<br />
-                  North Cotabato
-                </p>
+
+              <div class="detail-row with-icon">
+                <i data-lucide="map-pin" aria-hidden="true"></i>
+                <div>
+                  <p class="detail-label">Address</p>
+                  <p class="detail-value">
+                    Brgy. New Rizal, M'lang,<br />
+                    North Cotabato
+                  </p>
+                </div>
               </div>
-              <p class="detail-note">Reception to follow at the same venue.</p>
+
+              <p class="detail-note with-icon">
+                <i data-lucide="sparkles" aria-hidden="true"></i>
+                Reception to follow at the same venue.
+              </p>
             </article>
           </div>
 
@@ -158,12 +221,14 @@
           </div>
           <div class="map-actions">
             <a
-              class="btn outline"
+              class="btn outline with-icon"
               href="https://www.google.com/maps/place/Nanay+Lucy+Catering+Services/@6.9087587,124.9773291,18.25z/data=!4m6!3m5!1s0x32f85945e80f5db1:0x51f525e13a942a95!8m2!3d6.9095072!4d124.9771857!16s%2Fg%2F11kpmwd291?entry=ttu"
               target="_blank"
               rel="noreferrer"
-              >Open in Google Maps</a
             >
+              <i data-lucide="external-link" aria-hidden="true"></i>
+              Open in Google Maps
+            </a>
           </div>
         </div>
       </section>
@@ -171,13 +236,19 @@
       <!-- DRESS CODE -->
       <section class="dress-code" id="dress-code">
         <div class="container">
-          <h2 class="section-title center">Dress Code &amp; Color Palette</h2>
+          <h2 class="section-title center with-icon">
+            <i data-lucide="shirt" aria-hidden="true"></i>
+            Dress Code &amp; Color Palette
+          </h2>
           <p class="dress-note">
             Please come in formal attire following the palette below.
           </p>
           <div class="dress-grid">
             <article class="dress-card">
-              <h3 class="dress-title">Women</h3>
+              <h3 class="dress-title with-icon">
+                <i data-lucide="sparkles" aria-hidden="true"></i>
+                Women
+              </h3>
               <p class="dress-sub">Soft sage and forest tones</p>
               <div class="dress-photo">
                 <img
@@ -187,7 +258,10 @@
               </div>
             </article>
             <article class="dress-card">
-              <h3 class="dress-title">Men</h3>
+              <h3 class="dress-title with-icon">
+                <i data-lucide="bow" aria-hidden="true"></i>
+                Men
+              </h3>
               <p class="dress-sub">Soft sage and forest tones</p>
               <div class="dress-photo">
                 <img
@@ -203,7 +277,10 @@
       <!-- ENTOURAGE -->
       <section class="entourage" id="entourage">
         <div class="container">
-          <h2 class="section-title center">Entourage</h2>
+          <h2 class="section-title center with-icon">
+            <i data-lucide="users-2" aria-hidden="true"></i>
+            Entourage
+          </h2>
 
           <div class="entourage-block">
             <h3 class="entourage-heading">Principal Sponsors</h3>
@@ -307,7 +384,10 @@
       <!-- GIFTS -->
       <section class="gifts" id="gifts">
         <div class="container">
-          <h2 class="section-title center gifts-heading">GIFT IDEAS</h2>
+          <h2 class="section-title center gifts-heading with-icon">
+            <i data-lucide="gift" aria-hidden="true"></i>
+            GIFT IDEAS
+          </h2>
           <div class="gifts-card">
             <p class="gifts-line">
               with all that we have, we've been truly blessed,
@@ -326,43 +406,77 @@
       <!-- RSVP -->
       <section class="rsvp" id="rsvp">
         <div class="container rsvp-box">
-          <h2 class="section-title center">Confirm Your Attendance</h2>
+          <h2 class="section-title center with-icon">
+            <i data-lucide="messages-square" aria-hidden="true"></i>
+            Confirm Your Attendance
+          </h2>
           <p class="rsvp-text">We would love to have you celebrate with us.</p>
+
           <form class="rsvp-form" id="rsvp-form">
             <label>
               Name
-              <input
-                type="text"
-                name="name"
-                placeholder="Your full name"
-                required
-              />
+              <div class="input-wrap">
+                <span class="input-icon" aria-hidden="true">
+                  <i data-lucide="user"></i>
+                </span>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your full name"
+                  required
+                />
+              </div>
             </label>
+
             <label>
               Email
-              <input
-                type="email"
-                name="email"
-                placeholder="your.email@example.com"
-                required
-              />
+              <div class="input-wrap">
+                <span class="input-icon" aria-hidden="true">
+                  <i data-lucide="mail"></i>
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="your.email@example.com"
+                  required
+                />
+              </div>
             </label>
+
             <label>
               No. of Guests
-              <input type="number" name="guests" min="1" value="1" required />
+              <div class="input-wrap">
+                <span class="input-icon" aria-hidden="true">
+                  <i data-lucide="users"></i>
+                </span>
+                <input type="number" name="guests" min="1" value="1" required />
+              </div>
             </label>
+
             <label>
               Message
-              <textarea
-                name="message"
-                rows="4"
-                placeholder="Your message to the couple..."
-              ></textarea>
+              <div class="input-wrap">
+                <span class="input-icon" aria-hidden="true">
+                  <i data-lucide="message-circle"></i>
+                </span>
+                <textarea
+                  name="message"
+                  rows="4"
+                  placeholder="Your message to the couple..."
+                ></textarea>
+              </div>
             </label>
-            <button type="submit" class="btn primary full" id="rsvp-submit">
+
+            <button
+              type="submit"
+              class="btn primary full with-icon"
+              id="rsvp-submit"
+            >
+              <i data-lucide="send" aria-hidden="true"></i>
               Send RSVP
             </button>
           </form>
+
           <p class="rsvp-feedback rsvp-success" id="rsvp-success">
             Thank you. Your RSVP has been sent.
           </p>
@@ -377,7 +491,10 @@
     </main>
 
     <footer class="site-footer">
-      <h3 class="footer-title">Tiphanie &amp; Jeralde</h3>
+      <h3 class="footer-title with-icon">
+        <i data-lucide="heart" aria-hidden="true"></i>
+        Tiphanie &amp; Jeralde
+      </h3>
       <p class="footer-date">December 19, 2025</p>
       <p class="footer-venue">
         Nanay Lucy's Catering Services<br />
@@ -386,7 +503,11 @@
       <p class="footer-bottom">We look forward to celebrating with you</p>
     </footer>
 
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <script>
+      // countdown
       const targetTime = new Date("2025-12-19T14:30:00+08:00").getTime();
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
@@ -453,6 +574,9 @@
 
       updateCountdown();
       setInterval(updateCountdown, 1000);
+
+      // render icons
+      window.lucide && window.lucide.createIcons();
     </script>
   </body>
 </html>

@@ -32,7 +32,20 @@ img {
   margin-inline: auto;
 }
 
-/* HERO */
+/* --- ICON HELPERS --- */
+.with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.with-icon [data-lucide] {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.75;
+  flex: 0 0 auto;
+}
+
+/* hero */
 .hero {
   background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
   padding: 60px 0;
@@ -61,13 +74,21 @@ img {
 .hero-title {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.6rem, 5vw, 3.5rem);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.1rem;
   line-height: 1.2;
 }
-.hero-meta {
+
+/* icon bullets below title */
+.hero-meta-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: grid;
+  gap: 0.5rem;
+  justify-items: center;
   color: var(--muted);
-  margin-bottom: 2.5rem;
   font-size: 1rem;
+  text-align: left;
 }
 .hero-actions {
   display: flex;
@@ -76,7 +97,9 @@ img {
   flex-wrap: wrap;
 }
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   padding: 0.9rem 2.4rem;
   border-radius: 4px;
   font-weight: 500;
@@ -109,33 +132,31 @@ img {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* COUNTDOWN */
+/* countdown */
 .countdown {
   background: var(--bg);
   padding: 60px 0;
 }
-.section-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 3.5vw, 2.6rem);
-  margin-bottom: 2.5rem;
-  color: var(--text);
-  line-height: 1.1;
-}
-
+.section-title,
 .section-title-alt {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 3.5vw, 2.6rem);
   margin-bottom: 2.5rem;
-  color: white;
   line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
 }
-
+.section-title {
+  color: var(--text);
+}
+.section-title.center,
 .section-title-alt.center {
   text-align: center;
+  display: inline-flex;
 }
-
-.section-title.center {
-  text-align: center;
+.section-title-alt {
+  color: #fff;
 }
 .countdown-inner {
   text-align: center;
@@ -153,7 +174,7 @@ img {
   gap: 0.6rem;
 }
 
-/* Flip cards */
+/* flip cards */
 .flip-card {
   position: relative;
   width: 140px;
@@ -241,14 +262,8 @@ img {
   font-size: 0.7rem;
   color: var(--muted);
 }
-.countdown-note {
-  font-size: 0.8rem;
-  color: var(--sage-dark);
-  margin-top: 1.4rem;
-  font-style: italic;
-}
 
-/* ABOUT */
+/* about */
 .about {
   background: var(--white);
   padding: 80px 0;
@@ -301,7 +316,7 @@ img {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* DETAILS */
+/* details */
 .details {
   background: var(--bg);
   padding: 80px 0;
@@ -344,10 +359,14 @@ img {
 .detail-title {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.5rem;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
-.detail-block {
-  margin-bottom: 20px;
+.detail-row {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 0.8rem;
+  align-items: start;
+  margin-bottom: 16px;
 }
 .detail-label {
   text-transform: uppercase;
@@ -398,7 +417,7 @@ img {
   justify-content: center;
 }
 
-/* DRESS CODE */
+/* dress code */
 .dress-code {
   background: var(--white);
   padding: 70px 0;
@@ -446,7 +465,7 @@ img {
   height: auto;
 }
 
-/* ENTOURAGE */
+/* entourage */
 .entourage {
   background: var(--white);
   padding: 80px 0;
@@ -511,20 +530,20 @@ img {
   text-align: center;
 }
 
-/* GIFTS (now with illustration background) */
+/* gifts */
 .gifts {
   position: relative;
   padding: 70px 0;
   background: var(--bg) url("images/gifts-illustration.png") no-repeat;
-  background-size: cover; /* fills section elegantly */
-  background-position: left center; /* shows envelope on the left */
-  background-attachment: fixed; /* subtle parallax on desktop */
+  background-size: cover;
+  background-position: left center;
+  background-attachment: fixed;
 }
 .gifts::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(247, 246, 242, 0.55); /* soft wash for text contrast */
+  background: rgba(247, 246, 242, 0.55);
   pointer-events: none;
 }
 .gifts > .container {
@@ -580,17 +599,38 @@ img {
   color: var(--sage-dark);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+}
+
+/* input with icon */
+.input-wrap {
+  position: relative;
+}
+.input-icon {
+  position: absolute;
+  inset-inline-start: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+.input-icon [data-lucide] {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.75;
 }
 .rsvp-form input,
 .rsvp-form textarea {
   width: 100%;
-  padding: 12px 15px;
+  padding: 12px 15px 12px 44px;
   font-size: 1rem;
   border: 2px solid #e5e5e5;
   border-radius: 4px;
   font-family: inherit;
 }
+textarea {
+  padding-top: 14px;
+}
+
 .btn.full {
   width: 100%;
 }
@@ -618,7 +658,7 @@ img {
   padding-top: 20px;
 }
 
-/* FOOTER */
+/* footer */
 .site-footer {
   background: #2f3a32;
   color: var(--white);
@@ -646,7 +686,7 @@ img {
   font-size: 0.85rem;
 }
 
-/* RESPONSIVE */
+/* responsive */
 @media (max-width: 900px) {
   .hero-inner {
     padding: 50px 20px;
@@ -680,11 +720,11 @@ img {
   .flip-half {
     font-size: 2.3rem;
   }
-  .details-photo {
-    background-attachment: scroll;
-  }
+  .details-photo,
   .gifts {
     background-attachment: scroll;
-    background-position: center top;
+  }
+  .hero-meta-list {
+    justify-items: start;
   }
 }
