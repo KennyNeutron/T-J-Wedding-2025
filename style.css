@@ -1309,6 +1309,15 @@ textarea {
   display: inline-block;
   padding-top: 25px;
   color: var(--sage-dark);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.footer-credit {
+  border-top: 1px solid rgba(163, 177, 138, 0.3);
+  display: inline-block;
+  padding-top: 150px;
+  color: var(--sage-dark);
   font-size: 0.9rem;
   letter-spacing: 1px;
 }
