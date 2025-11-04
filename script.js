@@ -173,6 +173,7 @@ function celebrate() {
 }
 
 // Enhanced form submission with animation
+// Enhanced form submission with actual email sending
 function enhanceForm() {
   const form = document.getElementById("rsvp-form");
   const submitBtn = document.getElementById("rsvp-submit");
@@ -181,7 +182,7 @@ function enhanceForm() {
 
   if (!form || !submitBtn) return;
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const originalContent = submitBtn.innerHTML;
@@ -190,24 +191,33 @@ function enhanceForm() {
     submitBtn.disabled = true;
     initLucideIcons();
 
-    setTimeout(() => {
-      const isSuccess = Math.random() > 0.2;
+    // Collect form data
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      guests: formData.get("guests"),
+      message: formData.get("message"),
+    };
 
-      if (isSuccess) {
+    try {
+      const response = await fetch("/api/send-rsvp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
         submitBtn.innerHTML =
           '<i data-lucide="check" aria-hidden="true"></i><span>Sent Successfully!</span>';
         if (successMsg) successMsg.style.display = "block";
         if (errorMsg) errorMsg.style.display = "none";
-      } else {
-        submitBtn.innerHTML =
-          '<i data-lucide="alert-circle" aria-hidden="true"></i><span>Try Again</span>';
-        if (errorMsg) errorMsg.style.display = "block";
-        if (successMsg) successMsg.style.display = "none";
-      }
 
-      initLucideIcons();
-
-      if (isSuccess) {
+        // Reset form after success
         setTimeout(() => {
           form.reset();
           submitBtn.innerHTML = originalContent;
@@ -216,17 +226,25 @@ function enhanceForm() {
           if (successMsg) successMsg.style.display = "none";
         }, 3000);
       } else {
-        setTimeout(() => {
-          submitBtn.innerHTML = originalContent;
-          submitBtn.disabled = false;
-          initLucideIcons();
-          if (errorMsg) errorMsg.style.display = "none";
-        }, 3000);
+        throw new Error(result.message);
       }
-    }, 2000);
+    } catch (error) {
+      console.error("RSVP submission error:", error);
+      submitBtn.innerHTML =
+        '<i data-lucide="alert-circle" aria-hidden="true"></i><span>Try Again</span>';
+      if (errorMsg) errorMsg.style.display = "block";
+      if (successMsg) successMsg.style.display = "none";
+
+      // Reset button after error
+      setTimeout(() => {
+        submitBtn.innerHTML = originalContent;
+        submitBtn.disabled = false;
+        initLucideIcons();
+        if (errorMsg) errorMsg.style.display = "none";
+      }, 3000);
+    }
   });
 }
-
 // Icon animations
 function setupIconAnimations() {
   document.querySelectorAll(".with-icon").forEach((icon) => {
