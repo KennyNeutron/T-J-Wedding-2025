@@ -55,7 +55,7 @@ export default async function handler(req, res) {
     // Email content - UPDATED: Correct email address
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: "kennyneutron.hex@gmail.com", // email
+      to: "villarinedoloverio@gmail.com", // email
       subject: `Wedding RSVP from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
